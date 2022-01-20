@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.growth:
                 fragment = new GrowthFragment();
                 break;
+            case R.id.daycare:
+//                fragment = new DayCare();
+                break;
 
         }
         return loadFragment(fragment);

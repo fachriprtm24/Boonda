@@ -40,7 +40,10 @@
         <activity android:name=".SelectChildActivity" />
         <activity android:name=".MeasurementActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".DiscussionFragment"/>
+        <activity android:name=".GrowthFragment"/>
         <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,156 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    tools:context=".GrowthFragment">
-
-    <RelativeLayout
+    tools:context=".DiscussionFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_disc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_disc"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white">
-
-            <ImageButton
-                android:id="@+id/btn_back_child"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@color/white"
-                android:src="@drawable/back"/>
-
-            <TextView
-                style="@style/Title"
-                android:text="@string/growth"/>
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.cardview.widget.CardView
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
+        <ImageButton
+            android:id="@+id/btn_back_child"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/back"
+            android:background="@color/white"/>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar_disc">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/tv_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"/>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_measurement"
-                    android:layout_below="@id/tv_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    card_view:cardElevation="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/iv_measure"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/measure"/>
-                        <TextView
-                            android:id="@+id/tv_measure"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/measurement"
-                            android:textSize="11sp"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_health"
-                    android:layout_below="@id/tv_menu"
-                    android:layout_toRightOf="@id/cv_measurement"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    card_view:cardElevation="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="50dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/iv_health"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/health"/>
-                        <TextView
-                            android:id="@+id/tv_health"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/health_record"
-                            android:textSize="11sp"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_immunization"
-                    android:layout_below="@id/tv_menu"
-                    android:layout_toRightOf="@id/cv_health"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    card_view:cardElevation="0dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="20dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/iv_immunization"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/immunization"/>
-                        <TextView
-                            android:id="@+id/tv_immunization"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/immunization"
-                            android:textSize="11sp"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_graph"
-                    android:layout_below="@id/cv_measurement"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    card_view:cardElevation="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/iv_graph"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/graph_child"/>
-                        <TextView
-                            android:id="@+id/tv_graph"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/graphs"
-                            android:textSize="11sp"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
-</ScrollView>
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/discussion"/>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_measure"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/measure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_health"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:src="@drawable/health"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_immunization"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/immunization"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
+
+        <TextView
+            android:id="@+id/tv_measure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/measurement"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_measure"
+            app:layout_constraintStart_toStartOf="@+id/iv_measure"
+            app:layout_constraintTop_toBottomOf="@+id/iv_measure" />
+
+        <TextView
+            android:id="@+id/tv_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/health_record"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_health"
+            app:layout_constraintStart_toStartOf="@+id/iv_health"
+            app:layout_constraintTop_toBottomOf="@+id/iv_health" />
+
+        <TextView
+            android:id="@+id/tv_immunization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/immunization"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_immunization"
+            app:layout_constraintStart_toStartOf="@+id/iv_immunization"
+            app:layout_constraintTop_toBottomOf="@+id/iv_immunization" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_graph"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/graph_child"
+            app:layout_constraintEnd_toEndOf="@+id/iv_measure"
+            app:layout_constraintStart_toStartOf="@+id/iv_measure"
+            app:layout_constraintTop_toTopOf="@id/tv_measure"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
+
+        <TextView
+            android:id="@+id/tv_graph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/graphs"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_graph"
+            app:layout_constraintStart_toStartOf="@+id/iv_graph"
+            app:layout_constraintTop_toBottomOf="@+id/iv_graph" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

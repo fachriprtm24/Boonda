@@ -1,5 +1,6 @@
 package com.example.boonda;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,14 @@ public class SelectChildAdapter extends RecyclerView.Adapter<SelectChildAdapter.
                 .load(imageCurr.getPhotoProfile())
                 .apply(new RequestOptions().override(55,55))
                 .into(holder.circleImageView);
+
+        holder.circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), MeasurementActivity.class);
+                mContext.startActivity(i);
+            }
+        });
 
     }
 

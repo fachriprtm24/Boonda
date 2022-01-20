@@ -37,39 +37,6 @@ public class HomeFragment extends Fragment {
 
         user = view.findViewById(R.id.curr_user);
         user.setText(curr);
-//
-//        //submit data
-//        name = view.findViewById(R.id.coba_name);
-//        weight = view.findViewById(R.id.coba_weight);
-//        height = view.findViewById(R.id.coba_height);
-//        head = view.findViewById(R.id.coba_head);
-//
-//        submit = view.findViewById(R.id.coba_submit);
-//
-//        String childName = name.getText().toString();
-//
-//
-//        //database
-//        dbref = FirebaseDatabase.getInstance().getReference().child(curr).child(childName);
-//
-//        //submit
-//        submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String id = dbref.push().getKey();
-//
-//                String childName = name.getText().toString();
-//                String childWeight = weight.getText().toString();
-//                String childHeight = height.getText().toString();
-//                String childHead = head.getText().toString();
-//
-//                CobaModel cobaModel = new CobaModel(childName, childWeight, childHeight,childHead);
-//
-//                dbref.child(id).setValue(cobaModel);
-//
-//            }
-//        });
-
         return view;
     }
 }

@@ -1,263 +1,289 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DiscussionFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_disc"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
+        <ImageButton
+            android:id="@+id/btn_back_child"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/back"
+            android:background="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/discussion"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_disc"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            tools:ignore="MissingConstraints">
-            <ImageButton
-                android:id="@+id/btn_back_child"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/back"
-                android:background="@color/white"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="@string/discussion"/>
-        </androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        android:id="@+id/constraint1"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_join"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:padding="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="247dp"
+            android:text="@string/join_the_discussion"
+            android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_join"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="247dp"
-                android:text="@string/join_the_discussion"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_infants"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/infants"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_join"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_infants"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/infants"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_join"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_pregnancy"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pregnancy"
+            app:layout_constraintStart_toEndOf="@+id/iv_infants"
+            app:layout_constraintTop_toBottomOf="@+id/tv_join"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_pregnancy"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/pregnancy"
-                app:layout_constraintStart_toEndOf="@+id/iv_infants"
-                app:layout_constraintTop_toBottomOf="@+id/tv_join"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_education"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/education"
+            app:layout_constraintStart_toEndOf="@+id/iv_pregnancy"
+            app:layout_constraintTop_toBottomOf="@+id/tv_join"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_education"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/education"
-                app:layout_constraintStart_toEndOf="@+id/iv_pregnancy"
-                app:layout_constraintTop_toBottomOf="@+id/tv_join"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_behavior"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:src="@drawable/behavior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_education"
+            app:layout_constraintTop_toBottomOf="@+id/tv_join"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_behavior"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp"
-                android:src="@drawable/behavior"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_education"
-                app:layout_constraintTop_toBottomOf="@+id/tv_join"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <TextView
+            android:id="@+id/tv_infants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/infants"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_infants"
+            app:layout_constraintStart_toStartOf="@+id/iv_infants"
+            app:layout_constraintTop_toBottomOf="@+id/iv_infants" />
 
-            <TextView
-                android:id="@+id/tv_infants"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/infants"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_infants"
-                app:layout_constraintStart_toStartOf="@+id/iv_infants"
-                app:layout_constraintTop_toBottomOf="@+id/iv_infants" />
+        <TextView
+            android:id="@+id/tv_pregnancy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pregnancy"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_pregnancy"
+            app:layout_constraintStart_toStartOf="@+id/iv_pregnancy"
+            app:layout_constraintTop_toBottomOf="@+id/iv_pregnancy" />
 
-            <TextView
-                android:id="@+id/tv_pregnancy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pregnancy"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_pregnancy"
-                app:layout_constraintStart_toStartOf="@+id/iv_pregnancy"
-                app:layout_constraintTop_toBottomOf="@+id/iv_pregnancy" />
+        <TextView
+            android:id="@+id/tv_education"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/education"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_education"
+            app:layout_constraintStart_toStartOf="@+id/iv_education"
+            app:layout_constraintTop_toBottomOf="@+id/iv_education" />
 
-            <TextView
-                android:id="@+id/tv_education"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/education"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_education"
-                app:layout_constraintStart_toStartOf="@+id/iv_education"
-                app:layout_constraintTop_toBottomOf="@+id/iv_education" />
+        <TextView
+            android:id="@+id/tv_behavior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/behavior"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_behavior"
+            app:layout_constraintStart_toStartOf="@+id/iv_behavior"
+            app:layout_constraintTop_toBottomOf="@+id/iv_behavior" />
 
-            <TextView
-                android:id="@+id/tv_behavior"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/behavior"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_behavior"
-                app:layout_constraintStart_toStartOf="@+id/iv_behavior"
-                app:layout_constraintTop_toBottomOf="@+id/iv_behavior" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_toddlers"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/toddlers"
+            app:layout_constraintEnd_toEndOf="@+id/iv_infants"
+            app:layout_constraintStart_toStartOf="@+id/iv_infants"
+            app:layout_constraintTop_toTopOf="@id/tv_infants"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_toddlers"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/toddlers"
-                app:layout_constraintEnd_toEndOf="@+id/iv_infants"
-                app:layout_constraintStart_toStartOf="@+id/iv_infants"
-                app:layout_constraintTop_toTopOf="@id/tv_infants"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_preschool"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/preschool"
+            app:layout_constraintEnd_toEndOf="@+id/iv_pregnancy"
+            app:layout_constraintStart_toStartOf="@+id/iv_pregnancy"
+            app:layout_constraintTop_toTopOf="@id/tv_pregnancy"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_preschool"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/preschool"
-                app:layout_constraintEnd_toEndOf="@+id/iv_pregnancy"
-                app:layout_constraintStart_toStartOf="@+id/iv_pregnancy"
-                app:layout_constraintTop_toTopOf="@id/tv_pregnancy"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_parenting"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/parenting"
+            app:layout_constraintEnd_toEndOf="@+id/iv_education"
+            app:layout_constraintStart_toStartOf="@+id/iv_education"
+            app:layout_constraintTop_toTopOf="@id/tv_education"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_parenting"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/parenting"
-                app:layout_constraintEnd_toEndOf="@+id/iv_education"
-                app:layout_constraintStart_toStartOf="@+id/iv_education"
-                app:layout_constraintTop_toTopOf="@id/tv_education"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_topics"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/toughtopics"
+            app:layout_constraintEnd_toEndOf="@+id/iv_behavior"
+            app:layout_constraintStart_toStartOf="@+id/iv_behavior"
+            app:layout_constraintTop_toTopOf="@id/tv_behavior"
+            app:shapeAppearanceOverlay="@style/ImageCorner" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_topics"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/toughtopics"
-                app:layout_constraintEnd_toEndOf="@+id/iv_behavior"
-                app:layout_constraintStart_toStartOf="@+id/iv_behavior"
-                app:layout_constraintTop_toTopOf="@id/tv_behavior"
-                app:shapeAppearanceOverlay="@style/ImageCorner" />
+        <TextView
+            android:id="@+id/tv_toddlers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toddlers"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_toddlers"
+            app:layout_constraintStart_toStartOf="@+id/iv_toddlers"
+            app:layout_constraintTop_toBottomOf="@+id/iv_toddlers" />
 
-            <TextView
-                android:id="@+id/tv_toddlers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/toddlers"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_toddlers"
-                app:layout_constraintStart_toStartOf="@+id/iv_toddlers"
-                app:layout_constraintTop_toBottomOf="@+id/iv_toddlers" />
+        <TextView
+            android:id="@+id/tv_preschool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preschool"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_preschool"
+            app:layout_constraintStart_toStartOf="@+id/iv_preschool"
+            app:layout_constraintTop_toBottomOf="@+id/iv_preschool" />
 
-            <TextView
-                android:id="@+id/tv_preschool"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/preschool"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_preschool"
-                app:layout_constraintStart_toStartOf="@+id/iv_preschool"
-                app:layout_constraintTop_toBottomOf="@+id/iv_preschool" />
+        <TextView
+            android:id="@+id/tv_parenting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parenting"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_parenting"
+            app:layout_constraintStart_toStartOf="@+id/iv_parenting"
+            app:layout_constraintTop_toBottomOf="@+id/iv_parenting" />
 
-            <TextView
-                android:id="@+id/tv_parenting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Parenting"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_parenting"
-                app:layout_constraintStart_toStartOf="@+id/iv_parenting"
-                app:layout_constraintTop_toBottomOf="@+id/iv_parenting" />
+        <TextView
+            android:id="@+id/tv_topics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tough Topics"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_topics"
+            app:layout_constraintStart_toStartOf="@+id/iv_topics"
+            app:layout_constraintTop_toBottomOf="@+id/iv_topics" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/tv_topics"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tough Topics"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/iv_topics"
-                app:layout_constraintStart_toStartOf="@+id/iv_topics"
-                app:layout_constraintTop_toBottomOf="@+id/iv_topics" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/constraint2"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView">
 
-            <TextView
-                android:id="@+id/tv_recent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="@string/recent_discussion"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_toddlers" />
+        <TextView
+            android:id="@+id/tv_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recent_discussion"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card_rv"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_rv"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recent"
+            tools:layout_editor_absoluteX="16dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_recent_discuss"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                tools:listitem="@layout/carddiscussion"
-                app:layout_constraintTop_toBottomOf="@+id/tv_recent" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_recent"
+                tools:listitem="@layout/carddiscussion" />
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="That's all for now!"
-                android:layout_marginTop="30dp"
+                android:layout_gravity="bottom"
                 android:gravity="center"
+                android:text="That's all for now!"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/rv_recent_discuss" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@+id/rv_recent_discuss"
+                tools:layout_editor_absoluteX="16dp" />
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

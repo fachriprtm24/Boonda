@@ -3,42 +3,76 @@ package com.example.boonda;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-    public class GrowthFragment extends Fragment {
-        CardView cvMeasurement, cvGraphs,cvHealth;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            View view = inflater.inflate(R.layout.fragment_growth, container, false);
+public class GrowthFragment extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+    ImageView cvMeasurement, cvGraphs,cvHealth;
+    private BottomNavigationView bottomNavigationView;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_growth);
+        overridePendingTransition(0, 0);
+        // Inflate the layout for this fragment
 
-            cvMeasurement = view.findViewById(R.id.cv_measurement);
-            cvGraphs = view.findViewById(R.id.cv_graph);
-            cvHealth = view.findViewById(R.id.cv_health);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-            cvMeasurement.setOnClickListener(view1-> {
-                Intent i = new Intent(getActivity(), MeasurementActivity.class);
-                startActivity(i);
-            });
 
-            cvGraphs.setOnClickListener(view1-> {
-                Intent i = new Intent(getActivity(), GraphActivity.class);
-                startActivity(i);
-            });
 
-            cvHealth.setOnClickListener(view1-> {
-                Intent i = new Intent(getActivity(), AddChildDataActivity.class);
-                startActivity(i);
-            });
+        cvMeasurement = findViewById(R.id.iv_measure);
+        cvGraphs = findViewById(R.id.iv_graph);
+        cvHealth = findViewById(R.id.iv_health);
 
-            return view;
-        }
+        cvMeasurement.setOnClickListener(view1-> {
+            Intent i = new Intent(this, MeasurementActivity.class);
+            startActivity(i);
+        });
+
+        cvGraphs.setOnClickListener(view1-> {
+            Intent i = new Intent(this, GraphActivity.class);
+            startActivity(i);
+        });
+
+        cvHealth.setOnClickListener(view1-> {
+            Intent i = new Intent(this, AddChildDataActivity.class);
+            startActivity(i);
+        });
+
 
     }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+
+            case R.id.discussion:
+                startActivity(new Intent(getApplicationContext(), DiscussionFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+
+            case R.id.growth:
+                startActivity(new Intent(getApplicationContext(), GrowthFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+        }
+
+        return false;
+    }
+}

@@ -2,7 +2,9 @@ package com.example.boonda;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,11 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,25 +27,26 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DiscussionFragment extends Fragment {
+public class DiscussionFragment extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    private BottomNavigationView bottomNavigationView;
     ImageView ivInfants, ivPregnancy, ivEducation, ivBehaviour, ivToddlers, ivPreschool, ivParenting, ivTopic;
-
     RecyclerView recview;
     DiscussionAdapter adapter;
     ArrayList<ModelActivity> list;
     DatabaseReference dbref;
 
-    public DiscussionFragment() {
-
-    }
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_discussion, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_discussion);
+        overridePendingTransition(0, 0);
 
-        recview = (RecyclerView) view.findViewById(R.id.rv_recent_discuss);
-        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        recview = findViewById(R.id.rv_recent_discuss);
+        recview.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<ModelActivity>();
         dbref = FirebaseDatabase.getInstance().getReference().child("discussion");
@@ -53,7 +58,7 @@ public class DiscussionFragment extends Fragment {
                     ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
                     list.add(0,mList);
                 }
-                adapter = new DiscussionAdapter(getContext(),list);
+                adapter = new DiscussionAdapter(DiscussionFragment.this,list);
                 recview.setAdapter(adapter);
 
             }
@@ -63,102 +68,77 @@ public class DiscussionFragment extends Fragment {
             }
         });
 
-        ivInfants = view.findViewById(R.id.iv_infants);
-        ivPregnancy = view.findViewById(R.id.iv_pregnancy);
-        ivEducation = view.findViewById(R.id.iv_education);
-        ivBehaviour = view.findViewById(R.id.iv_behavior);
-        ivToddlers = view.findViewById(R.id.iv_toddlers);
-        ivPreschool = view.findViewById(R.id.iv_preschool);
-        ivParenting = view.findViewById(R.id.iv_parenting);
-        ivTopic = view.findViewById(R.id.iv_topics);
+        ivInfants =findViewById(R.id.iv_infants);
+        ivPregnancy = findViewById(R.id.iv_pregnancy);
+        ivEducation = findViewById(R.id.iv_education);
+        ivBehaviour = findViewById(R.id.iv_behavior);
+        ivToddlers = findViewById(R.id.iv_toddlers);
+        ivPreschool = findViewById(R.id.iv_preschool);
+        ivParenting = findViewById(R.id.iv_parenting);
+        ivTopic = findViewById(R.id.iv_topics);
 
         ivInfants.setOnClickListener(view1 -> {
-            moveInfants();
+            Intent i = new Intent(this, InfantsActivity.class);
+            startActivity(i);
         });
 
         ivPregnancy.setOnClickListener(view1 -> {
-            movePregnancy();
+            Intent i = new Intent(this, PregnancyActivity.class);
+            startActivity(i);
         });
 
         ivEducation.setOnClickListener(view1 -> {
-            moveEducation();
+            Intent i = new Intent(this, EducationActivity.class);
+            startActivity(i);
         });
 
         ivBehaviour.setOnClickListener(view1 -> {
-            moveBehavior();
+            Intent i = new Intent(this, BehaviorActivity.class);
+            startActivity(i);
         });
 
         ivToddlers.setOnClickListener(view1 -> {
-            moveToddlers();
+            Intent i = new Intent(this, ToddlersActivity.class);
+            startActivity(i);
         });
 
         ivPreschool.setOnClickListener(view1 -> {
-            movePreschool();
+            Intent i = new Intent(this, PreschoolActivity.class);
+            startActivity(i);
         });
 
         ivParenting.setOnClickListener(view1 -> {
-            moveParenting();
+            Intent i = new Intent(this, ParentingActivity.class);
+            startActivity(i);
         });
 
         ivTopic.setOnClickListener(view1 -> {
-            moveToughTopics();
+            Intent i = new Intent(this, ToughTopicsActivity.class);
+            startActivity(i);
         });
-
-
-        return view;
     }
 
-    public void moveInfants() {
-        Intent i = new Intent(getActivity(), InfantsActivity.class);
-        startActivity(i);
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+
+            case R.id.discussion:
+                startActivity(new Intent(getApplicationContext(), DiscussionFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+
+            case R.id.growth:
+                startActivity(new Intent(getApplicationContext(), GrowthFragment.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
+        }
+        return false;
     }
-
-    public void movePregnancy() {
-        Intent i = new Intent(getActivity(), PregnancyActivity.class);
-        startActivity(i);
-    }
-
-    public void moveEducation() {
-        Intent i = new Intent(getActivity(), EducationActivity.class);
-        startActivity(i);
-    }
-
-    public void moveBehavior() {
-        Intent i = new Intent(getActivity(), BehaviorActivity.class);
-        startActivity(i);
-    }
-
-    public void moveToddlers() {
-        Intent i = new Intent(getActivity(), ToddlersActivity.class);
-        startActivity(i);
-    }
-
-    public void movePreschool() {
-        Intent i = new Intent(getActivity(), PreschoolActivity.class);
-        startActivity(i);
-    }
-
-    public void moveParenting() {
-        Intent i = new Intent(getActivity(), ParentingActivity.class);
-        startActivity(i);
-    }
-
-    public void moveToughTopics() {
-        Intent i = new Intent(getActivity(), ToughTopicsActivity.class);
-        startActivity(i);
-    }
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        adapter.stopListening();
-//    }
-
-
 }
